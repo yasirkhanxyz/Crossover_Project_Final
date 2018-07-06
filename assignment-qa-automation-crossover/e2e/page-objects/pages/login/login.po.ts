@@ -37,5 +37,9 @@ export class LoginPage {
     static get SentButton() {
         return element(By.xpath('//*[@role="button" and text()="Send"]'));
     }
-
+    
+    static get Attachmentbtn() {
+        return element(By.id("hy"));
+    }
+    
 }

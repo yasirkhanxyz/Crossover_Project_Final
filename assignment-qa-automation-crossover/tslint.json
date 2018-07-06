@@ -136,8 +136,7 @@
     "directive-class-suffix": true,
     "invoke-injectable": true,
     "no-consecutive-blank-lines": true,
-    "no-empty": [
-      true,
+    "no-empty": [true,
       "allow-empty-catch"
     ],
     "no-unnecessary-class": [

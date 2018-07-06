@@ -15,4 +15,9 @@ export class LoginPageHelper extends CommonPageHelper {
     public async LoggedIn(){
        return element(By.id("gbqfb")).isPresent();
     }
+
+    public async Attachment(){
+        return element(By.id("hy")).isPresent();
+    }
+    
 }

@@ -41,8 +41,16 @@ describe('G mail suite', () => {
         await LoginPage.SendToTextBox.sendKeys(user1.username);
         await LoginPage.SubjectTextBox.clear();
         await LoginPage.SubjectTextBox.sendKeys('Yasir sent you this with this subject');
+        await browser.sleep(3000);
+        const X3 = await loginPageHelper.Attachment();
+        console.log(X3 + 'Page Loaded Successfully');
+        
         await LoginPage.BodyTextBox.click();
         await LoginPage.BodyTextBox.sendKeys('Yasir sent you with this Body');
+        await browser.sleep(5000);
+        
+        await LoginPage.Attachmentbtn.click();
+        await browser.sleep(5000);
         await LoginPage.SentButton.click();
 
         await browser.sleep(5000);
