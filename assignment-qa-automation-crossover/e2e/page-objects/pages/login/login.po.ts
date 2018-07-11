@@ -38,8 +38,14 @@ export class LoginPage {
         return element(By.xpath('//*[@role="button" and text()="Send"]'));
     }
     
-    static get Attachmentbtn() {
-        return element(By.id("hy"));
+    static get Userclick() {
+        return element(By.className("gb_db gbii"));
     }
+
+    static get signout() {
+        return element(By.className("gb_Ea gb_1f gb_8f gb_Oe gb_Jb"));
+    }
+
+   
     
 }

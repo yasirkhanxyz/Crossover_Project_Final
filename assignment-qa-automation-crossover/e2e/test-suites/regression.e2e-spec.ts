@@ -3,6 +3,7 @@ import {LoginPageHelper} from '../page-objects/pages/login/login-page.helper';
 import {browser,ExpectedConditions} from 'protractor';
 
 
+
 describe('G mail suite', () => {
     let loginPageHelper: LoginPageHelper;
     
@@ -42,17 +43,38 @@ describe('G mail suite', () => {
         await LoginPage.SubjectTextBox.clear();
         await LoginPage.SubjectTextBox.sendKeys('Yasir sent you this with this subject');
         await browser.sleep(3000);
-        const X3 = await loginPageHelper.Attachment();
-        console.log(X3 + 'Page Loaded Successfully');
-        
         await LoginPage.BodyTextBox.click();
         await LoginPage.BodyTextBox.sendKeys('Yasir sent you with this Body');
         await browser.sleep(5000);
-        
-        await LoginPage.Attachmentbtn.click();
-        await browser.sleep(5000);
         await LoginPage.SentButton.click();
+        const X4= await loginPageHelper.signoutbtn();
+        if (X4 == true)
+        {
+            console.log("Button Found")
+        }
+            console.log ("Failed to locate button");
+        await LoginPage.Userclick.click();
+                
+        await LoginPage.signout.click();
+        await browser.sleep(5000);
+        
+    });
+
+
+    it('Recieve email', async () => {
+        const user2 = browser.params.user1;
+        await loginPageHelper.goToPage();
+        const X1 = await loginPageHelper.SignInlabel();
+        console.log(X1 + 'Page Loaded Successfully');
+        await LoginPage.username.sendKeys(user2.username);
+
+        await LoginPage.UserNextButton.click();
+        await browser.wait(ExpectedConditions.visibilityOf(LoginPage.password));
+
+        await LoginPage.password.sendKeys(user2.password);
 
         await browser.sleep(5000);
+
     });
+    
 });
